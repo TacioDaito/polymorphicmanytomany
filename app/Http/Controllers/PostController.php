@@ -15,7 +15,8 @@ class PostController extends Controller
     }
 
     public function readById(Request $request) {
-        dd(Post::findOrFail($request->id));
+        $postToRead = Post::findOrFail($request->id);
+        dd($postToRead->id, $postToRead->name, $postToRead->tags());
     }
 
     public function readAll() {
