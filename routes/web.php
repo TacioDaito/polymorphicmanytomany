@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\TagController;
+use App\Http\Controllers\VideoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,33 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('posts/create/{name}', [PostController::class, 'create']);
+
+Route::get('posts/read/{id}', [PostController::class, 'readById']);
+
+Route::get('posts', [PostController::class, 'readAll']);
+
+Route::get('posts/{id}/update/{name}', [PostController::class, 'update']);
+
+Route::get('posts/{id}/delete', [PostController::class, 'delete']);
+
+Route::get('videos/create/{name}', [VideoController::class, 'create']);
+
+Route::get('videos/read/{id}', [VideoController::class, 'readById']);
+
+Route::get('videos', [VideoController::class, 'readAll']);
+
+Route::get('videos/{id}/update/{name}', [VideoController::class, 'update']);
+
+Route::get('videos/{id}/delete', [VideoController::class, 'delete']);
+
+Route::get('tags/create/{name}', [TagController::class, 'create']);
+
+Route::get('tags/read/{id}', [TagController::class, 'readById']);
+
+Route::get('tags', [TagController::class, 'readAll']);
+
+Route::get('tags/{id}/update/{name}', [VideoController::class, 'update']);
+
+Route::get('tags/{id}/delete', [TagController::class, 'delete']);

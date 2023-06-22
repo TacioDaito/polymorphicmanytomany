@@ -10,8 +10,4 @@ use App\Helpers\Route;
 class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
-
-    public function redirectTo(Route $route) {
-        return redirect()->route($route->url, $route->argumentArray);
-    }
 }
