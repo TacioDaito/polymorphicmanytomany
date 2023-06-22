@@ -30,6 +30,8 @@ Route::get('posts/{id}/update/{name}', [PostController::class, 'update']);
 
 Route::get('posts/{id}/delete', [PostController::class, 'delete']);
 
+Route::get('posts/{postId}/linktag/{tagId}', [PostController::class, 'linkTag']);
+
 Route::get('videos/create/{name}', [VideoController::class, 'create']);
 
 Route::get('videos/read/{id}', [VideoController::class, 'readById']);
