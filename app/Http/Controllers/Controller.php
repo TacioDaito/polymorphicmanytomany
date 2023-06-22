@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use App\Helpers\Route;
 
 class Controller extends BaseController
 {
@@ -13,5 +14,4 @@ class Controller extends BaseController
     public function redirectTo(Route $route) {
         return redirect()->route($route->url, $route->argumentArray);
     }
-    
 }
