@@ -16,7 +16,7 @@ class PostController extends Controller
 
     public function readById(Request $request) {
         $postToRead = Post::findOrFail($request->id);
-        dd($postToRead->id, $postToRead->name, $postToRead->tags());
+        dd($postToRead->id, $postToRead->name, $postToRead->tags);
     }
 
     public function readAll() {
@@ -30,7 +30,9 @@ class PostController extends Controller
     }
 
     public function delete(Request $request) {
-        Post::findOrFail($request->id)->delete();
+        $postToDelete = Post::findOrFail($request->id);
+        $postToDelete->tags()->detach();
+        $postToDelete->delete();
         return redirect('/posts');
     }
 

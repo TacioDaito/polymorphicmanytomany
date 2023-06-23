@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Video;
+use App\Models\Tag;
 
 class VideoController extends Controller
 {
@@ -14,7 +15,8 @@ class VideoController extends Controller
     }
 
     public function readById(Request $request) {
-        dd(Video::findOrFail($request->id));
+        $videoToRead = Video::findOrFail($request->id);
+        dd($videoToRead->id, $videoToRead->name, $videoToRead->tags);
     }
 
     public function readAll() {
@@ -28,7 +30,15 @@ class VideoController extends Controller
     }
 
     public function delete(Request $request) {
-        Video::findOrFail($request->id)->delete();
+        $videoToDelete = Video::findOrFail($request->id);
+        $videoToDelete->tags()->detach();
+        $videoToDelete->delete();
         return redirect('/videos');
+    }
+
+    public function linkTag(Request $request) {
+        $videoToLink = Video::findOrFail($request->videoId);
+        $videoToLink->tags()->save(Tag::findOrFail($request->tagId));
+        return redirect('/videos/read/' . $videoToLink->id);
     }
 }

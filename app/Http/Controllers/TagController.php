@@ -14,7 +14,8 @@ class TagController extends Controller
     }
 
     public function readById(Request $request) {
-        dd(Tag::findOrFail($request->id));
+        $tagToRead = Tag::findOrFail($request->id);
+        dd($tagToRead->id, $tagToRead->name, $tagToRead->posts, $tagToRead->videos);
     }
 
     public function readAll() {
@@ -28,7 +29,10 @@ class TagController extends Controller
     }
 
     public function delete(Request $request) {
-        Tag::findOrFail($request->id)->delete();
+        $tagToDelete = Tag::findOrFail($request->id);
+        $tagToDelete->posts()->detach();
+        $tagToDelete->videos()->detach();
+        $tagToDelete->delete();
         return redirect('/tags');
     }
 }
