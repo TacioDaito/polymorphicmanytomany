@@ -20,7 +20,11 @@ class VideoController extends Controller
     }
 
     public function readAll() {
-        dd(Video::all());
+        $videosArray = [];
+        foreach (Video::all() as $video) {
+            $videosArray[$video->id] = $video->name;
+        }
+        dd($videosArray);
     }
 
     public function update(Request $request) {

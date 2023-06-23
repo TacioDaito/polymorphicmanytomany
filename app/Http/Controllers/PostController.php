@@ -20,7 +20,11 @@ class PostController extends Controller
     }
 
     public function readAll() {
-        dd(Post::all());
+        $postsArray = [];
+        foreach (Post::all() as $post) {
+            $postsArray[$post->id] = $post->name;
+        }
+        dd($postsArray);
     }
 
     public function update(Request $request) {

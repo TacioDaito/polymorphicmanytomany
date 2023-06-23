@@ -19,7 +19,11 @@ class TagController extends Controller
     }
 
     public function readAll() {
-        dd(Tag::all());
+        $tagsArray = [];
+        foreach (Tag::all() as $tag) {
+            $tagsArray[$tag->id] = $tag->name;
+        }
+        dd($tagsArray);
     }
 
     public function update(Request $request) {
