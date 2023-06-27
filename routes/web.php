@@ -53,3 +53,7 @@ Route::get('tags', [TagController::class, 'readAll']);
 Route::get('tags/update/{id}/{name}', [VideoController::class, 'update']);
 
 Route::get('tags/delete/{id}', [TagController::class, 'delete']);
+
+//-------------------------------------------------------------------------
+
+Route::resource('view/posts', PostController::class);
