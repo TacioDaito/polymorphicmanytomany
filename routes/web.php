@@ -16,43 +16,43 @@ use App\Http\Controllers\VideoController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('posts/create/{name}', [PostController::class, 'create']);
+// Route::get('posts/create/{name}', [PostController::class, 'create']);
 
-Route::get('posts/read/{id}', [PostController::class, 'readById']);
+// Route::get('posts/read/{id}', [PostController::class, 'readById']);
 
-Route::get('posts', [PostController::class, 'readAll']);
+// Route::get('posts', [PostController::class, 'readAll']);
 
-Route::get('posts/update/{id}/{name}', [PostController::class, 'update']);
+// Route::get('posts/update/{id}/{name}', [PostController::class, 'update']);
 
-Route::get('posts/delete/{id}', [PostController::class, 'delete']);
+// Route::get('posts/delete/{id}', [PostController::class, 'delete']);
 
-Route::get('posts/linktag/{postId}/{tagId}', [PostController::class, 'linkTag']);
+// Route::get('posts/linktag/{postId}/{tagId}', [PostController::class, 'linkTag']);
 
-Route::get('videos/create/{name}', [VideoController::class, 'create']);
+// Route::get('videos/create/{name}', [VideoController::class, 'create']);
 
-Route::get('videos/read/{id}', [VideoController::class, 'readById']);
+// Route::get('videos/read/{id}', [VideoController::class, 'readById']);
 
-Route::get('videos', [VideoController::class, 'readAll']);
+// Route::get('videos', [VideoController::class, 'readAll']);
 
-Route::get('videos/update/{id}/{name}', [VideoController::class, 'update']);
+// Route::get('videos/update/{id}/{name}', [VideoController::class, 'update']);
 
-Route::get('videos/delete/{id}', [VideoController::class, 'delete']);
+// Route::get('videos/delete/{id}', [VideoController::class, 'delete']);
 
-Route::get('videos/linktag/{videoId}/{tagId}', [VideoController::class, 'linkTag']);
+// Route::get('videos/linktag/{videoId}/{tagId}', [VideoController::class, 'linkTag']);
 
-Route::get('tags/create/{name}', [TagController::class, 'create']);
+// Route::get('tags/create/{name}', [TagController::class, 'create']);
 
-Route::get('tags/read/{id}', [TagController::class, 'readById']);
+// Route::get('tags/read/{id}', [TagController::class, 'readById']);
 
-Route::get('tags', [TagController::class, 'readAll']);
+// Route::get('tags', [TagController::class, 'readAll']);
 
-Route::get('tags/update/{id}/{name}', [VideoController::class, 'update']);
+// Route::get('tags/update/{id}/{name}', [VideoController::class, 'update']);
 
-Route::get('tags/delete/{id}', [TagController::class, 'delete']);
+// Route::get('tags/delete/{id}', [TagController::class, 'delete']);
 
 //-------------------------------------------------------------------------
 
